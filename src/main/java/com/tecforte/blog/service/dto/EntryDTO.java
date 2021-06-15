@@ -23,6 +23,7 @@ public class EntryDTO implements Serializable {
     @Lob
     private String content;
 
+    private Boolean positive;
 
     private Long blogId;
 
@@ -74,6 +75,14 @@ public class EntryDTO implements Serializable {
 
     public void setBlogId(Long blogId) {
         this.blogId = blogId;
+    }
+
+    public Boolean getPositive() {
+        return positive;
+    }
+
+    public void setPositive(Boolean positive) {
+        this.positive = positive;
     }
 
     public String getBlogName() {

@@ -18,7 +18,6 @@ public class BlogDTO implements Serializable {
     @NotNull
     private Boolean positive;
 
-
     private Long userId;
 
     private String userLogin;

@@ -116,4 +116,11 @@ public class BlogResource {
         blogService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
+
+    @DeleteMapping("/blogs/clean")
+    public ResponseEntity<Void> deleteBlog(@PathVariable Long id, String keywords){
+        log.debug("REST request to delete Blog : {}", keywords);
+        blogService.delete(id);
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, keywords)).build();
+    }
 }
