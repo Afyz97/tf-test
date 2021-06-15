@@ -82,6 +82,18 @@ export class EntryUpdateComponent implements OnInit {
     }
   }
 
+  setContent(positive, content) {
+    if ((positive = true)) {
+      if (content == 'SAD' || content == 'FEAR' || content == 'LONELY') {
+        throw new BadRequestAlertException('Invalid Emoji', ENTITY_NAME, 'invalidEmoji');
+      }
+    } else {
+      if (content == 'LOVE' || content == 'HAPPY' || content == 'TRUST') {
+        throw new BadRequestAlertException('Invalid Emoji', ENTITY_NAME, 'invalidEmoji');
+      }
+    }
+  }
+
   setFileData(event, field: string, isImage) {
     return new Promise((resolve, reject) => {
       if (event && event.target && event.target.files && event.target.files[0]) {
