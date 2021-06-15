@@ -70,6 +70,18 @@ export class EntryUpdateComponent implements OnInit {
     return this.dataUtils.openFile(contentType, field);
   }
 
+  setEmoji(positive, emoji) {
+    if ((positive = true)) {
+      if (emoji == 'SAD' || emoji == 'ANGRY') {
+        throw new BadRequestAlertException('Invalid Emoji', ENTITY_NAME, 'invalidEmoji');
+      }
+    } else {
+      if (emoji == 'LIKE' || emoji == 'HAHA') {
+        throw new BadRequestAlertException('Invalid Emoji', ENTITY_NAME, 'invalidEmoji');
+      }
+    }
+  }
+
   setFileData(event, field: string, isImage) {
     return new Promise((resolve, reject) => {
       if (event && event.target && event.target.files && event.target.files[0]) {
